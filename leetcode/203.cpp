@@ -29,7 +29,7 @@ void removeElements(std::unique_ptr<ListNode>& head, int val) {
     // 使用指向 unique_ptr 的指针来遍历链表
     std::unique_ptr<ListNode>* current = &head;
 
-    while (current->get()) {
+    while (current->get()) {  // current->get() 等效于 (*current).get()
         if ((*current)->val == val) {
             // 删除当前节点：跳过它（被跳过节点的析构自动触发）
             *current = std::move((*current)->next);
